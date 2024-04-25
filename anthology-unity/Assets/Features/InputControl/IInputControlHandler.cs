@@ -11,7 +11,7 @@ public interface IInputControlHandler
 public interface IInputHandle
 {
 	Vector3 WorldPosition { get; }
-	float Radius { get; }
+	float Radius { get; set; }
 	void MoveTo(Vector3 position);
 }
 

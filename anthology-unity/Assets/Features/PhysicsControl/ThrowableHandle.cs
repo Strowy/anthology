@@ -8,12 +8,17 @@ public class ThrowableHandle : MonoBehaviour, IPhysicsHandle, IInputHandle
 	[SerializeField] private float _maxSpeed = 50;
 
 	public Vector3 WorldPosition => transform.position;
-	public float Radius => _holdRadius;
+	public float Radius { get; set; }
 	public Vector3 Velocity { get; private set; } = Vector3.zero;
 	public Vector2 Bounds { get; set; } = new(10, 10);
 
 	private Vector3 _targetPosition = Vector3.zero;
 	private bool _override;
+
+	public void Awake()
+	{
+		Radius = _holdRadius;
+	}
 
 	public void MoveTo(Vector3 position)
 	{
