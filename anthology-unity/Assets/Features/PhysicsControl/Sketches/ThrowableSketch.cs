@@ -13,7 +13,7 @@ public class ThrowableSketch : MonoBehaviour
 	{
 		_mouseControlHandler = gameObject.AddComponent<MouseControlHandler>();
 		_mouseControlHandler.Initialise(_handleCollection, Camera.main);
-		_physicsControlHandler = gameObject.AddComponent<PhysicsControlHandler>();
+		_physicsControlHandler = gameObject.GetComponent<PhysicsControlHandler>();
 		
 		foreach (var handle in _handles)
 		{

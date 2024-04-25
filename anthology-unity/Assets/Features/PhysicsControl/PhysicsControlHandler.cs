@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PhysicsControlHandler : MonoBehaviour, IPhysicsControlHandler
 {
+	[SerializeField] private Vector2 _extents = new(8, 4);
+
 	private readonly List<IPhysicsHandle> _handles = new();
 
 	public void Update()
@@ -12,6 +14,7 @@ public class PhysicsControlHandler : MonoBehaviour, IPhysicsControlHandler
 
 	public void Add(IPhysicsHandle handle)
 	{
+		handle.Bounds = _extents;
 		_handles.Add(handle);
 	}
 

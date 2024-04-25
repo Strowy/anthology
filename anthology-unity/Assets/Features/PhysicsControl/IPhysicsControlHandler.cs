@@ -10,6 +10,6 @@ public interface IPhysicsControlHandler
 public interface IPhysicsHandle
 {
 	Vector3 Velocity { get; }
-	
+	Vector2 Bounds { get; set; }
 	void Step(float deltaTime);
 }
