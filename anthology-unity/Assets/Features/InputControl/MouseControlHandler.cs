@@ -43,15 +43,14 @@ public class MouseControlHandler : MonoBehaviour, IInputControlHandler
 			TryHandling();
 		}
 
-		if (Handling && Input.GetMouseButtonUp(0))
-		{
-			Handling = false;
-			Held = null;
-		}
+		if (!Handling) return;
+		
+		Held?.MoveTo(WorldPosition + _holdOffset);
 
-		if (!Handling || Held == null) return;
-
-		Held.MoveTo(WorldPosition + _holdOffset);
+		if (!Input.GetMouseButtonUp(0)) return;
+		
+		Handling = false;
+		Held = null;
 	}
 
 	private void TryHandling()
