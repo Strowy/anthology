@@ -7,8 +7,11 @@ public class LineView : MonoBehaviour
 	[SerializeField] private Transform _fill;
 	[SerializeField] private float _width = 1;
 
-	public IInputHandle Origin { get; private set; }
-	public IInputHandle End { get; private set; }
+	public Transform Origin => _pointA.transform;
+	public Transform End => _pointB.transform;
+	
+	public IInputHandle OriginHandle => _pointA.GetComponent<IInputHandle>();
+	public IInputHandle EndHandle => _pointB.GetComponent<IInputHandle>();
 
 	public CapsuleModel Model
 	{
@@ -18,10 +21,8 @@ public class LineView : MonoBehaviour
 
 	public void Start()
 	{
-		Origin = _pointA.GetComponent<IInputHandle>();
-		Origin.Radius = _width / 2;
-		End = _pointB.GetComponent<IInputHandle>();
-		End.Radius = _width / 2;
+		OriginHandle.Radius = _width / 2;
+		EndHandle.Radius = _width / 2;
 
 		Refresh();
 	}

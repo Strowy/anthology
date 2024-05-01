@@ -6,6 +6,11 @@ public class SketchHandleCollection : IInputHandleCollection
 
 	private readonly List<IInputHandle> _handles = new();
 
+	public void Clear()
+	{
+		_handles.Clear();
+	}
+
 	public void Add(IInputHandle handle)
 	{
 		_handles.Add(handle);

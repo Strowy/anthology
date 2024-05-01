@@ -19,9 +19,7 @@ public class PositionSketch : MonoBehaviour
 		_mouseControlHandler = gameObject.AddComponent<MouseControlHandler>();
 		_mouseControlHandler.Initialise(_handleCollection, Camera.main);
 		foreach (var handle in _handles)
-		{
 			_handleCollection.Add(handle);
-		}
 	}
 
 	public void Update()
